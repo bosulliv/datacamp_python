@@ -1,2 +1,4 @@
 .ipynb_checkpoints*
 .DS_Store
+ind_pop.csv
+ind_pop_data.csv
