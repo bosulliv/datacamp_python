@@ -1,5 +1,7 @@
+*.icloud
 .ipynb_checkpoints*
 .DS_Store
+*.gz
 ind_pop.csv
 ind_pop_data.csv
 assets.datacamp.com
@@ -8,4 +10,6 @@ albeck_gene_expression.mat
 digits.csv
 titanic.csv
 
-*/heartbeat-sounds/*
+# Specific Folders
+heartbeat-sounds/*
+aclImdb
