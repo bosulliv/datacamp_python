@@ -1,6 +1,6 @@
 # Import needed functionality
-from collections import Counter
 import matplotlib.pyplot as plt
+
 
 
 def plot_counter_most_common(top_items):

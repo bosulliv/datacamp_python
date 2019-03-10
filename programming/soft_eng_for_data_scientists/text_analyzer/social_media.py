@@ -1,13 +1,16 @@
 from .token_utils import tokenize
-from collections import Counter
 from .document import Document
+from collections import Counter
 
-# Define Document class
+
+
 class SocialMedia(Document):
-    """A class for text analysis of tweets
+    """Analyze text data from social media
     
-    :param text: string of text to be analyzed
-    :ivar text: string of text to be analyzed; set by `text` parameter
+    :param text: social media text to analyze
+
+    :ivar hashtag_counts: Counter object containing counts of hashtags used in text
+    :ivar mention_counts: Counter object containing counts of @mentions used in text
     """
     # Method to create a new instance of MyClass
     def __init__(self, text):
