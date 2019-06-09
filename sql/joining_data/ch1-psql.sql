@@ -3,9 +3,9 @@ drop table IF EXISTS cities;
 create table cities(
     "name" text primary key,
     "country_code" text,
-    "city_proper_pop" int,
-    "metroarea_pop" int,
-    "urbanarea_pop" int
+    "city_proper_pop" float,
+    "metroarea_pop" float,
+    "urbanarea_pop" float
 );
 
 -- import data
