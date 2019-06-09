@@ -22,7 +22,7 @@ create table countries(
     "region" text,
     "surface_area" int,
     "indep_year" int,
-    "local name" text,
+    "local_name" text,
     "gov_form" text,
     "capital" text,
     "cap_long" float,
