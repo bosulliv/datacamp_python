@@ -9,9 +9,8 @@ create table cities(
 );
 
 -- import data
-.mode csv
-.import cities.csv cities
-delete from cities where name = 'name';
+\copy cities from 'cities.csv' DELIMITER ',' CSV HEADER;
+
 
 -- create countries table
 drop table IF EXISTS countries;
@@ -20,7 +19,7 @@ create table countries(
     "name" text,
     "continent" text,
     "region" text,
-    "surface_area" int,
+    "surface_area" float,
     "indep_year" int,
     "local_name" text,
     "gov_form" text,
@@ -35,14 +34,12 @@ create table countries_plus(
     "name" text,
     "continent" text,
     "code" text primary key,
-    "surface_area" int,
+    "surface_area" float,
     "geosize_group" text
 );
 
--- import countries
-.mode csv
-.import countries.csv countries
-delete from countries where code = 'code';
+-- import data
+\copy countries from 'countries.csv' DELIMITER ',' CSV HEADER;
 
 
 -- create table economies
@@ -62,11 +59,7 @@ create table economies(
 );
 
 -- import economies
-.mode csv
-.import economies.csv economies
-
--- delete header row
-delete from economies where econ_id = 'econ_id';
+\copy economies from 'economies.csv' DELIMITER ',' CSV HEADER;
 
 
 -- create table populations
@@ -88,11 +81,7 @@ create table pop_plus(
 );
 
 -- import populations
-.mode csv
-.import populations.csv populations
-
--- delete header row
-delete from populations where pop_id = 'pop_id';
+\copy populations from 'populations.csv' DELIMITER ',' CSV HEADER;
 
 
 -- create table languages
@@ -106,9 +95,4 @@ create table languages(
 );
 
 -- import languages
-.mode csv
-.import languages.csv languages
-
--- delete header row
-delete from languages where lang_id = 'lang_id';
-
+\copy languages from 'languages.csv' DELIMITER ',' CSV HEADER;
