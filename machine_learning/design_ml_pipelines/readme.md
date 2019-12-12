@@ -12,3 +12,6 @@ That analysis benefits from human creativity, especially when motivated by the f
 
 ### Dataset Shift
 Sometimes we set arbitrary windows for temporal data - these should be tested with window size which slides over our dataset. Of course, in this instance seasonality needs to be balanced with recency. With something as complicated as customer retention, I would bias towards recency, rather than long measures of seasonality - or indeed, split models into customers where seasonality is an important predictor, whereas newer or more changeable customers benefit from models of recent data.
+
+### Outlier Detection
+I am going to make this a common part of my EDA for new data sets. This is especially helpful when checking response variables against the other features using appropriate distance metrics. This might be robust enough to act as a pipepline filter to remove values that need checking - e.g. a very large bill, yet few SKU's. That could confuse models when either the bill or SKU list has an error.
