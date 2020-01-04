@@ -1,19 +1,7 @@
 import numpy as np
 import pytest
-from data.as_numpy import get_data_as_numpy_array
-from model.train import split_into_training_and_testing_sets
+from src.models.train import split_into_training_and_testing_sets
 
-
-def test_on_clean_file():
-  expected = np.array([[2081.0, 314942.0],
-                       [1059.0, 186606.0],
-  					   [1148.0, 206186.0]
-                       ]
-                      )
-  actual = get_data_as_numpy_array("example_clean_data.txt", num_columns=2)
-  message = "Expected return value: {0}, Actual return value: {1}".format(expected, actual)
-  # Complete the assert statement
-  assert actual == pytest.approx(expected), message
 
 class TestSplitIntoTrainingAndTestingSets(object):
     def test_on_one_row(self):
@@ -40,5 +28,16 @@ class TestSplitIntoTrainingAndTestingSets(object):
         # Write the assert statement checking testing array's number of rows
         assert actual[1].shape[0] == expected_testing_array_num_rows, "The actual number of rows in the testing array is not {}".format(expected_testing_array_num_rows)
 
-
-
+@pytest.mark.xfail(reason="Using TDD, model_test() has not yet been implemented")
+class TestModelTest(object):
+    def test_on_linear_data(self):
+        test_input = np.array([[1.0, 3.0], [2.0, 5.0], [3.0, 7.0]])
+        expected = 1.0
+        actual = model_test(test_input, 2.0, 1.0)
+        message = "model_test({0}) should return {1}, but it actually returned {2}".format(test_input, expected, actual)
+        assert actual == pytest.approx(expected), message
+        
+    def test_on_one_dimensional_array(self):
+        test_input = np.array([1.0, 2.0, 3.0, 4.0])
+        with pytest.raises(ValueError) as exc_info:
+            model_test(test_input, 1.0, 1.0)
